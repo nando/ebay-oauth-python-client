@@ -2,7 +2,9 @@ name: ebay-config
 
 # Trading API OAuth - https://developer.ebay.com/api-docs/static/oauth-tokens.html
 
-# UPDATE the values in this file, before running the tests
+# Before running the tests:
+#  * Update the values in this file,
+#  * Remove "-sample" from the filename.
 api.sandbox.ebay.com:
     appid: <appid-from-developer-portal>
     certid: <certid-from-developer-portal>

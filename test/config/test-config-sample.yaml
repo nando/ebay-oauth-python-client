@@ -1,3 +1,6 @@
+# Before running the tests:
+#  * Update the values in this file,
+#  * Remove "-sample" from the filename.
 name: test-config
 
 # https://developer.ebay.com/DevZone/SandboxUser/

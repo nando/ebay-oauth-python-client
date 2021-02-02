@@ -30,35 +30,35 @@ class TestGetApplicationCredential(unittest.TestCase):
 
         
     def test_invalid_oauth_scope(self):
-        config_path = os.path.join(os.path.split(__file__)[0], 'config' ,'ebay-config-sample.yaml')
+        config_path = os.path.join(os.path.split(__file__)[0], 'config' ,'ebay-config.yaml')
         credentialutil.load(config_path)
         oauth2api_inst = oauth2api()
         app_token = oauth2api_inst.get_application_token(environment.SANDBOX, invalid_app_scopes)
         self.assertIsNone(app_token.access_token)
         self.assertIsNotNone(app_token.error)
-        print '\n *** test_invalid_oauth_scope ***\n', app_token
+        print('\n *** test_invalid_oauth_scope ***\n', app_token)
     
 
     def test_client_credentials_grant_sandbox(self):
-        config_path = os.path.join(os.path.split(__file__)[0], 'config' ,'ebay-config-sample.yaml')
+        config_path = os.path.join(os.path.split(__file__)[0], 'config' ,'ebay-config.yaml')
         credentialutil.load(config_path)        
         oauth2api_inst = oauth2api()
         app_token = oauth2api_inst.get_application_token(environment.SANDBOX, app_scopes)
         self.assertIsNone(app_token.error)
         self.assertIsNotNone(app_token.access_token)
         self.assertTrue(len(app_token.access_token) > 0)
-        print '\n *** test_client_credentials_grant_sandbox ***:\n', app_token   
+        print('\n *** test_client_credentials_grant_sandbox ***:\n', app_token)
 
         
     def test_client_credentials_grant_production(self):
-        config_path = os.path.join(os.path.split(__file__)[0], 'config' ,'ebay-config-sample.yaml')
+        config_path = os.path.join(os.path.split(__file__)[0], 'config' ,'ebay-config.yaml')
         credentialutil.load(config_path)
         oauth2api_inst = oauth2api()
         app_token = oauth2api_inst.get_application_token(environment.PRODUCTION, app_scopes)
         self.assertIsNone(app_token.error)
         self.assertIsNotNone(app_token.access_token)
         self.assertTrue(len(app_token.access_token) > 0)
-        print '\n *** test_client_credentials_grant_production ***:\n', app_token   
+        print('\n *** test_client_credentials_grant_production ***:\n', app_token)
 
 
 if __name__ == '__main__':
